@@ -1,5 +1,5 @@
 # Computer-Architecture
-Created a CPU in Verilog for ECE251.
+Created a CPU in Verilog for ECE251 Final Project.
 
 # Rob Website 
 https://github.com/robmarano/cpu_hdl_catalog/tree/STEP-01
