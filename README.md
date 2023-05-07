@@ -1,9 +1,5 @@
 # Computer-Architecture
-<<<<<<< HEAD
-Created a CPU in Verilog for ECE251 Final Project.
-=======
 Created a CPU in Verilog for ECE251. Made it with Bestie :monkey:
->>>>>>> Ridwan
 
 # Rob Website 
 https://github.com/robmarano/cpu_hdl_catalog/tree/STEP-01
@@ -20,11 +16,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 - [x] Adder
 - [ ] Shift left two
 - [ ] Sign Extender
-<<<<<<< HEAD
-- [ ] D Flip-Flop
-=======
 - [x] D Flip-Flop
->>>>>>> Ridwan
 - [ ] Multiplexer 2:1 (could be diff for us)
 - [ ] CPU (MIPS) (diff for us I think)
 - [ ] Controller
