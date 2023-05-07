@@ -1,5 +1,5 @@
 # Computer-Architecture
-Created a CPU in Verilog for ECE251.
+Created a CPU in Verilog for ECE251. Made it with Bestie :monkey:
 
 # Rob Website 
 https://github.com/robmarano/cpu_hdl_catalog/tree/STEP-01
