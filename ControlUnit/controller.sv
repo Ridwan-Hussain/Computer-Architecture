@@ -29,9 +29,9 @@ module controller(op, zero, regdst, jump, memread, memtoreg, aluop, memwrite, al
 	logic branch;
     
 	// CPU main decoder
-	maindec md(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);
+	mainDec md(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);
 	// CPU's ALU decoder
-	aludec  ad(aluop, alucontrol);
+	aluDec  ad(aluop, alucontrol);
 	// AND Gate that is part of Control
 	assign pcsrc = branch & zero;
 
