@@ -16,9 +16,10 @@
 
 module tb_dff;
 	// ---- Defining variables to be used ---- //
+	parameter n = 32;
 	reg clk;          //inputs are reg for test bench
-	reg [31:0] enable, reset, D;
-	wire [31:0] Q;     //outputs are wire for test bench 
+	reg [(n-1):0] enable, reset, D;
+	wire [(n-1):0] Q;     //outputs are wire for test bench 
 	wire nclk, C;
 
 	// ---- INSTANTIATE UNIT UNDER TEST (UUT) ---- //

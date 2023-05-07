@@ -27,23 +27,24 @@ module singledff(enable, reset, clk, D, Q);
 	not (nD, D); 
 	and (G2, nD, C, enable);  //Gate 2
 	
-	nor (Q, G2, nQ, reset);					//Output Q before async reset
-	nor (nQ, G1, Q);					//Output nQ, also G4
+	nor (Q, G2, nQ, reset);   //Output Q before async reset
+	nor (nQ, G1, Q);          //Output nQ, also G4
 
 endmodule
 
-module dff(enable, reset, clk, D, Q); 
+module dff 
 	// ---- PORT DEFINITIONS ---- //
-	input clk;
-	input [31:0] enable, reset, D;
-	output [31:0] Q;
-	output nclk, C;
+	#(parameter n = 32)
+	(input clk,
+	input [(n-1):0] enable, reset, D,
+	output [(n-1):0] Q,
+	output nclk, C);
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	genvar i;
 	generate
-		for (i = 0; i < 32; i = i + 1'd1) begin
-			singledff sff0(.enable(enable[i]), .reset(reset[i]), .clk(clk), .D(D[i]), .Q(Q[i]));										
+		for (i = 0; i < n; i = i + 1'd1) begin
+			singledff sff0(.enable(enable[i]), .reset(reset[i]), .clk(clk), .D(D[i]), .Q(Q[i]));
 		end
 	endgenerate
 endmodule
