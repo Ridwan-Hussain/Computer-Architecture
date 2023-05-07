@@ -12,11 +12,7 @@
 # CHANGE THESE THREE LINES FOR YOUR DESIGN
 #
 #TOOL INPUT
-<<<<<<<< HEAD:DFF/Makefile
 COMPONENT = dff
-========
-COMPONENT = adder32Bit
->>>>>>>> a987a781ecea3534ae3041833bbf60f206dab826:Adder32Bit/Makefile
 #SRC = $(shell ls *.sv)
 SRC = $(wildcard *.sv)
 SIM_ARGS=+a=3 +b=2 +s=0
