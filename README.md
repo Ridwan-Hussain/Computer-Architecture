@@ -13,7 +13,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 - [ ] Instruction Mem
 - [ ] Register File
 - [ ] ALU
-- [ ] Adder
+- [x] Adder
 - [ ] Shift left two
 - [ ] Sign Extender
 - [ ] D Flip-Flop
