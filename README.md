@@ -10,7 +10,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 # Components Made in Verilog:
 - [x] Clock 
 - [x] Data mem
-- [ ] Instruction Mem
+- [x] Instruction Mem
 - [ ] Register File
 - [ ] ALU
 - [ ] Adder
