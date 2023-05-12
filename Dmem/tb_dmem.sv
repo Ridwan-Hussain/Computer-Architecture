@@ -51,44 +51,6 @@ module tb_dmem
 		#20 writeEnable <= 0;
 		#20 $finish;	
 	end
-  /*initial begin
-      #10 clkEnable <= 1;
-      #20 writeData = #(n)'hFFFFFFFF;
-      #20 addr <= #(r)'b000000;
-      #20 writeEnable <= 1;
-      #20 writeEnable <= 0;
-      #20 addr <= #(r)'b000001;
-      #20 writeData = #(n)'h0000FFFF;
-      #20 writeEnable <= 1;
-      #20 writeEnable <= 0;
-      #20 addr <= #(r)'b000010;
-      #20 writeData = #(n)'h00000000;
-      #20 writeEnable <= 1;
-      #20 writeEnable <= 0;
-      #20 $finish;
-   end*/
 
-endmodule
-
-// `endif // tb_dmem
-
-/*module tb_dmem;
-    parameter n = 32; // bit length of registers/memory
-    parameter r = 6; // we are only addressing 64=2**6 mem slots in imem
-    logic [(n-1):0] readdata, writedata;
-    logic [(n-1):0] dmem_addr;
-    logic write_enable;
-    logic clk, clock_enable;
-
-   initial begin
-        $dumpfile("dmem.vcd");
-        $dumpvars(0, uut, uut1);
-        $monitor("time=%0t write_enable=%b dmem_addr=%h readdata=%h writedata=%h",
-            $realtime, write_enable, dmem_addr, readdata, writedata);
-    end
-
-
-endmodule
-
-`endif // TB_IMEM
-*/
+	endmodule 
+	// `endif //tb_dmem
