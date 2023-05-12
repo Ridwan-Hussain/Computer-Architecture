@@ -21,7 +21,7 @@ module tb_dmem
 	reg clk, writeEnable, clkEnable;    //inputs are reg for test bench
 	reg [(n-1):0] addr;
 	reg [(n-1):0] writeData;
-	wire [(n-1):0] readData, readData1; //outputs are wire for test bench
+	wire [(n-1):0] readData; //outputs are wire for test bench
    
 	// ---- INSTANTIATE UNIT UNDER TEST (UUT) ---- //
 	dmem uut(.clk(clk), .writeEnable(writeEnable), .addr(addr), .writeData(writeData), .readData(readData));

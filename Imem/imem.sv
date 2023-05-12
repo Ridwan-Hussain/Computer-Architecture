@@ -15,7 +15,6 @@
 
 `ifndef imem
 `define imem
-`timescale 1ns/100ps
 
 module imem
 	#(parameter n = 32, parameter r = 6)
