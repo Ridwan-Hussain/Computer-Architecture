@@ -20,7 +20,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 - [x] Shift left two
 - [x] Sign Extender
 - [x] D Flip-Flop
-- [ ] Multiplexer 2:1 (could be diff for us)
+- [x] Multiplexer 2:1 (could be diff for us)
 - [ ] CPU (MIPS) (diff for us I think)
 - [ ] Controller
 - [ ] Main Decoder
