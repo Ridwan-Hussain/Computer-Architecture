@@ -17,7 +17,7 @@
 `timescale 1ns/100ps
 
 module aluDec(op, aluop, alucontrol);
-	input logic [4:0] rop;
+	input logic [4:0] op;
 	input logic [1:0] aluop;
 	output logic [3:0] alucontrol;
 
