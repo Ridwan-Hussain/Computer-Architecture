@@ -11,6 +11,18 @@ https://ocw.mit.edu/courses/6-823-computer-system-architecture-fall-2005/964e8d2
 https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts/15/Doc.aspx?action=edit&sourcedoc=%7B2cd312b1-8aa7-483c-a74d-31bccdc8a4b7%7D&wdOrigin=TEAMS-WEB.teamsSdk.openFilePreview&wdExp=TEAMS-CONTROL&web=1
 
 # ISA for Besties CPU
+![image](https://github.com/Ridwan-Hussain/Computer-Architecture/assets/114603278/48548477-219a-45a8-9fb7-18185bfe5cf4)
+<sup>Register, Immediate, and Address Instruction Types Formating</sup>
+
+![image](https://github.com/Ridwan-Hussain/Computer-Architecture/assets/114603278/aabbf38f-dabf-4588-97ed-76556f38f680)
+<sup>The instructions we defined for R-type and how their bit values are defined.</sup>
+
+![image](https://github.com/Ridwan-Hussain/Computer-Architecture/assets/114603278/5c2e417e-c619-4bc5-887f-0a19813c8336)
+<sup>The instructions we defined for I-type and how their bit values are defined.</sup>
+
+![image](https://github.com/Ridwan-Hussain/Computer-Architecture/assets/114603278/1bfbdb4b-e731-42b2-a181-3aac20e3a2e6)
+<sup>The instructions we defined for J-type and how their bit values are defined.</sup>
+
 1. The ALU Operand Size is 32 bits.
 2. ==[We'd support X ALU operations: **List operations here**]==
 3. The Operational Code (OpCode) will be 5 bits.
