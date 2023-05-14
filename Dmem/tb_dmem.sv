@@ -16,7 +16,7 @@
 `include "../Clock/clock.sv"
 
 module tb_dmem
-	#(parameter n = 32, parameter r = 6);
+	#(parameter n = 32, parameter r = 7);
 	// ---- Defining variables to be used ---- //
 	reg clk, writeEnable, clkEnable;    //inputs are reg for test bench
 	reg [(n-1):0] addr;

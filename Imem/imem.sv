@@ -17,7 +17,7 @@
 `define imem
 
 module imem
-	#(parameter n = 32, parameter r = 6)
+	#(parameter n = 32, parameter r = 7)
 	// ---- PORT DEFINITIONS ---- //
 	(input [(r-1):0] addr, 
 	output [(n-1):0] readData );

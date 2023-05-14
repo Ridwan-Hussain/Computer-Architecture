@@ -18,7 +18,7 @@
 module dmem
 	// ---- PORT DEFINITIONS ---- //
 	//n is the size of each register; r is the lenght of addr (limited by verilog emulator)
-	#(parameter n = 32, parameter r = 6)
+	#(parameter n = 32, parameter r = 7)
 	(input clk, writeEnable, 
 	input [(n-1):0] addr,
 	input [(n-1):0] writeData, 

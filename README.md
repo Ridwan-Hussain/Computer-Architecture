@@ -46,7 +46,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 - First two bits for OpCode determine instruction type (XOR for Register, AND for Immediate, NAND for Jump)
 - We'll be storing our numbers using Little Endianness
 - Registers are written on rising edge, and are read on falling edge (not async)
-- 
+- for our code, n=32 bits and r=7 bits
 
 # Components Made in Verilog:
 - [x] Clock 
