@@ -22,7 +22,14 @@ module sl2
 	output [(n-1):0] num4);
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
-	assign num4 = num * 4;
+	genvar i;
+	generate for (i = 0; i < (n-2); i = i + 1) begin
+		or(num4[i+2], num[i], 0);
+	end
+	endgenerate
+	and(num4[0], 0, 0);
+	and(num4[1], 0, 0);
+	//assign num4 = num * 4;
 
 endmodule
 

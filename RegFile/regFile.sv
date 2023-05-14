@@ -28,7 +28,6 @@ module regFile
 	reg [(n-1):0] registers[(2**r-1):0];
 	reg [(n-1):0] rD1, rD2;
 
-
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	always @(posedge clk) begin		
 		if (writeEnable) begin

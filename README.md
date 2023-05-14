@@ -66,6 +66,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 - [x] Sl2 (Shift Left Two)
   - Shifts the bits by 2 (or times by 4)
   - The two most significant bits are dropped
+  - Made using Structural Code
 - [x] Sign Extender
   - Sign Extends a number from 16bits to 32bits
 - [x] DFF (D Flip-Flop)
