@@ -58,7 +58,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
   - Registers are written on rising edge and read on falling edge
 - [ ] ALU (Arithmetic Logic Unit)
   - 
-- [ ] Adder
+- [x] Adder
   - 
 - [x] Sl2 (Shift Left Two)
   - Shifts the bits by 2 (or times by 4)
@@ -72,9 +72,9 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
   - Decides which data input to output based on a select pin
 - [ ] CPU (MIPS) (diff for us I think)
   - 
-- [ ] Control Unit
+- [x] Control Unit
   - 
-- [ ] MainDec (Main Decoder)
+- [x] MainDec (Main Decoder)
   - 
 - [ ] Datapath
   - 
@@ -91,7 +91,8 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 - [ ] Make this document presentable for submission
 - [ ] Type up assmebly code w/ our instructions
 - [ ] Show hand compiled assembly code
-- 
+- [ ] Clean up
+  - [ ] remove uncessary comments and such
 
 Start of File Code Stuff:
 ```
