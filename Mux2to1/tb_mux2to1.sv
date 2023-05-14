@@ -14,7 +14,7 @@
 `timescale 1ns/100ps
 `include "./mux2to1.sv"
 
-module tb_mux2to1 
+module tb_mux2to1
   // ---- Defining variables to be used ---- //
 	#(parameter n = 32);
 	reg s;
@@ -26,7 +26,7 @@ module tb_mux2to1
 	
 	// ---- INITIALIZE TEST BENCH ---- //
 	initial begin
-		$dumpfile("mux2to1.vcd"); // for Makefile, make dump file same as module name
+		$dumpfile("mux.vcd"); // for Makefile, make dump file same as module name
 		$dumpvars(0, uut);
 		$monitor("S=%b, D1=%x, D2=%x, DO=%x", s, d1, d2, dO);
 	end

@@ -23,27 +23,19 @@ module mux2to1
 	output [(n-1):0] dataOut);
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
-	/*wire nSelect;
+	wire nSelect;
 	wire [(n-1):0] selectD1, selectD2;
 
 	not(nSelect, select);
 	genvar i;
 	generate for (i = 0; i < n; i = i + 1) begin
-		and(selectD2[i], nSelect, data1[i]);
-		and(selectD1[i], select, data2[i]);
+		and(selectD1[i], nSelect, data1[i]);
+		and(selectD2[i], select, data2[i]);
 		or(dataOut[i], selectD1[i], selectD2[i]);
-	end*/
-
-	reg [(n-1):0] data;
-	always @* begin
-		if (select == 0) begin
-			data = data1;
-		end else begin
-			data = data2;
-		end
 	end
-
-	assign dataOut = data;
+	endgenerate 
+	
+	assign dataOut = data;*/
 
 endmodule
 

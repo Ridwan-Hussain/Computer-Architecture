@@ -73,6 +73,7 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
   - Made using Structural Code
 - [x] Mux2to1 (2:1 Multiplexer)
   - Decides which data input to output based on a select pin
+  - Made using Structural Code
 - [ ] CPU (MIPS) (diff for us I think)
   - 
 - [x] Control Unit
