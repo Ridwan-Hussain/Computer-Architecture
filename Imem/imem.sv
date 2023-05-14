@@ -20,7 +20,7 @@ module imem
 	#(parameter n = 32, parameter r = 7)
 	// ---- PORT DEFINITIONS ---- //
 	(input [(r-1):0] addr, 
-	output [(n-1):0] readData );
+	output [(n-1):0] readData);
 	
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	reg [(n-1):0] RAM[0:(2**r-1)];
