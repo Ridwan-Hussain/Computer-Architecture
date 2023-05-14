@@ -1,5 +1,9 @@
 # Computer-Architecture
-Created a CPU in Verilog for ECE251. Made it with Bestie :monkey:
+Created a CPU in Verilog for ECE251. Made it with Bestie :monkey: The CPU created was done so that it follows the 4 main design principles:
+> Simplicity favors regularity.
+> Smaller is faster.
+> Great design demands great compromises.
+> Make the common case fast.
 
 # Rob Website 
 https://github.com/robmarano/cpu_hdl_catalog/tree/STEP-01
