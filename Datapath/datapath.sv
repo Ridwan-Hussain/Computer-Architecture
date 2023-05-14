@@ -12,8 +12,8 @@
 //                                                                              //
 //////////////////////////////////////////////////////////////////////////////////
 
-`ifndef datapath
-`define datapath
+`ifndef DATAPATH
+`define DATAPATH
 `timescale 1ns/100ps
 `include "../Clock/clock.sv"
 `include "../RegFile/regFile.sv"
@@ -32,7 +32,7 @@ module datapath
 	memToReg, pcSrc, aluSrc, regDst,      //mux select pints
 	writeEnable,                          //writeEnable pin for writing to Regs
 	jump,                                 //(?)
-	input [?:0] aluControl,               //(?)
+	input [3:0] aluControl,               //(?)
 	input [(n-1):0] instruction,          //Instruction we gave
 	readData1, readData2,                 //Data red from registers
 	output zero,                          //Constant zero (also reg 0)
