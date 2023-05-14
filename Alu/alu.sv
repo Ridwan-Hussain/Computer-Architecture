@@ -49,11 +49,11 @@ module alu(clk, a, b, alucontrol, result, pc, zero);
             	4'b0111: result = a | b; // or
 		4'b1000: result = a^b; // xor
 		4'b1001: result = ~(a | b); //nor
-		4'b1010
-            3'b101: result = HiLo[(2*n-1):n];   // MFHI
-            3'b110: result = sumSlt;            // sub
-            // 3'b111: result = sumSlt[(n-1)];     // slt
-            3'b111: begin                       // slt
+		4'b1010: result = a; //jr
+		4'b1011: result = ~(a & b); // nand
+		4'b1100: result = ~(a); //not
+
+            4'b1101: begin                       // slt
 				if (a[31] != b[31])
 					if (a[31] > b[31])
 						result = 1;
@@ -65,7 +65,19 @@ module alu(clk, a, b, alucontrol, result, pc, zero);
 					else
 						result = 0;
             end
-        endcase
+	    4'1110: begin 
+	    			if (a[31] != b[31])
+					if (a[31] < b[31])
+						result = 1;
+					else
+						result = 0;
+				else
+					if (a > b)
+						result = 1;
+					else
+						result = 0;
+		end
+	endcase
     end
 
     //Multiply and divide results are only stored at clock falling edge.
