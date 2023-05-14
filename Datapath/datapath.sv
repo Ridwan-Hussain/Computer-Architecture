@@ -27,7 +27,7 @@
 module datapath
 	#(parameter n = 32, parameter r = 7)
 	// ---- PORT DEFINITIONS ---- //
-	(input clk, reset, clkEnable,         //clock inputs
+	(input clk, reset,         //clock inputs
 	dffEnable,                            //enable pin for DFFs
 	memToReg, pcSrc, aluSrc, regDst,      //mux select pints
 	writeEnable,                          //writeEnable pin for writing to Regs
@@ -47,7 +47,7 @@ module datapath
 	reg [(n-1):0] srca, scrb;                          //
 	reg [(n-1):0] result;                              //
 		
-	clk clock(.clk(clk), .enable(clkEnable));
+	
 	dff #(64) pcreg(.clk(clk), .reset(reset), .enable(dffEnable), .D(pc), .Q(pcnext));
 	sl2 signShift(.num(
 	adder32bit pcAdd2();
