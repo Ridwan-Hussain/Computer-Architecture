@@ -78,6 +78,17 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
   - 
 - [ ] Computer (CPU + MEM + 1/0)
   - 
+
+# Things to Do
+- [ ] Remaining Verilog components
+  - [ ] Datapath
+  - [ ] CPU
+  - [ ] Computer (?)
+- [ ] Decide memory map layout
+- [ ] Make this document presentable for submission
+- [ ] Type up assmebly code w/ our instructions
+- [ ] Show hand compiled assembly code
+
 Start of File Code Stuff:
 ```
 //////////////////////////////////////////////////////////////////////////////////
