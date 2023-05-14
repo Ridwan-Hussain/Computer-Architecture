@@ -1,17 +1,20 @@
-//////////////////////////////////////////////////////////////////////////////////
-// The Cooper Union                                                             //
-// ECE 251 Spring 2023                                                          //
-// Engineers: Ridwan Hussain and Ilona Lameka                                   //
-//                                                                              //
-//     Create Date: 2023-05-13                                                  //
-//     Module Name: datapath                                                    //
-//     Description: The datapath the integrates clock, regFile, alu, dff,       // 
-//     adder32bit, sl2, mux2to1, and signExtender.                              //
-//                                                                              //
-// Revision: 1.0                                                                //
-//                                                                              //
-//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//                                                                      //
+// EXAMPLE module                                                       //
+//                                                                      //
+// An example module for your Computer Architecture Elements Catalog    //
+//                                                                      //
+// module: example                                                      //
+// hdl: Verilog                                                         //
+//                                                                      //
+// author: Ridwan Hussain <ridwan.hussain@cooper.edu>                   //
+//                                                                      //
+//////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
+`ifndef EXAMPLE
+`define EXAMPLE
+=======
 `ifndef DATAPATH
 `define DATAPATH
 `timescale 1ns/100ps
@@ -23,10 +26,19 @@
 `include "../Sl5/sl5.sv"
 `include "../Mux2to1/mux2to1.sv"
 `include "../SignExtender/signExtender.sv"
+>>>>>>> refs/remotes/origin/main
 
-module datapath
-	#(parameter n = 32, parameter r = 7)
+module example(A, B, C);
 	// ---- PORT DEFINITIONS ---- //
+<<<<<<< HEAD
+	input  [3:0] A, B;
+	output [3:0] C;
+
+	// ---- MODULE DESIGN IMPLEMENTATION ---- //
+
+	// mix up the input bits
+	assign C = { A[0], B[2], A[1], B[3] };
+=======
 	(input clk, reset,                    //clock inputs
 	memToReg, pcSrc, aluSrc, regDst,      //mux select pints
 	writeEnable,                          //writeEnable pin for writing to Regs
@@ -81,7 +93,8 @@ module datapath
 	  //Another mux that does stuff, chooses between srcA and srcB
 	alu Alu(.clk(clk), .a(srcA), .b(srcB), .alucontrol(aluControl), .result(aluOut), .pc(pc), .zero(zero));
 	  //Alu is the ALU
+>>>>>>> refs/remotes/origin/main
 
 endmodule
 
-`endif // datapath
+`endif // EXAMPLE
