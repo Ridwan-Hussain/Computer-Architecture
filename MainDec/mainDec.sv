@@ -16,7 +16,7 @@
 `timescale 1ns/100ps
 
 module mainDec(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);
-	input logic [5:0] op;
+	input logic [4:0] op;
 	output logic memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump;
 	output logic [1:0] aluop;
 
@@ -37,7 +37,7 @@ module mainDec(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, a
 			5'b11100: controls <= 9'b001000011; // BEQ
 			5'b11101: controls <= 9'b000000011; // BNE
 			5'b00000: controls <= 9'b000000100; // J
-			5'b00111: controls <= 9'b100011100; // JAL
+			5'b00111: controls <= 9'b000000100; // JAL
 			//5'b11110:
 			//5'b11111:
 			default: controls <= 9'bxxxxxxxxx; //illegal
