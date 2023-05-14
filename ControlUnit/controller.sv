@@ -19,7 +19,7 @@
 `include "../MainDec/mainDec.sv"
 `include "../AluDec/aluDec.sv"
 
-module controller(op, zero, regdst, jump, memtoreg, aluop, memwrite, alusrc, regwrite, pcsrc);
+module controller(op, zero, regdst, jump, memtoreg, aluop, memwrite, alusrc, regwrite, pcsrc, alucontrol);
 	input logic [4:0]op;
 	input logic zero;
 	output logic regdst, branch, jump, memtoreg, memwrite, alusrc, regwrite, pcsrc;
