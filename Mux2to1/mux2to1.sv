@@ -19,23 +19,21 @@ module mux2to1
 	#(parameter n = 32)
 	// ---- PORT DEFINITIONS ---- //
 	(input select,
-	input  [(n-1):0] data1, data2,
+	input  [(n-1):0] data0, data1,
 	output [(n-1):0] dataOut);
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	wire nSelect;
-	wire [(n-1):0] selectD1, selectD2;
+	wire [(n-1):0] selectD0, selectD1;
 
 	not(nSelect, select);
 	genvar i;
 	generate for (i = 0; i < n; i = i + 1) begin
-		and(selectD1[i], nSelect, data1[i]);
-		and(selectD2[i], select, data2[i]);
-		or(dataOut[i], selectD1[i], selectD2[i]);
+		and(selectD0[i], nSelect, data0[i]);
+		and(selectD1[i], select, data1[i]);
+		or(dataOut[i], selectD0[i], selectD1[i]);
 	end
 	endgenerate 
-	
-	assign dataOut = data;*/
 
 endmodule
 

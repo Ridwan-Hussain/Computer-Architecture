@@ -17,7 +17,7 @@
 
 module tb_imem
 	// ---- Defining variables to be used ---- //
-	#(parameter n = 32, parameter r = 6);
+	#(parameter n = 32, parameter r = 7);
 	reg [(r-1):0] addr;   //inputs are reg for test bench
 	wire [(n-1):0] readData;     //outputs are wire for test bench
    
