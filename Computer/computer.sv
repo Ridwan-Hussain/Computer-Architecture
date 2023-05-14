@@ -21,7 +21,7 @@
 `include "../Dmem/dmem.sv"
 
 module computer(clk, reset, writedate, dataadr, memwrite);
-	input logic clk reset;
+	input logic clk, reset;
 	input logic [31:0] writedata, dataadr;
 	output logic memwrite;
 

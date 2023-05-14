@@ -11,10 +11,6 @@
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-`ifndef EXAMPLE
-`define EXAMPLE
-=======
 `ifndef DATAPATH
 `define DATAPATH
 `timescale 1ns/100ps
@@ -26,19 +22,8 @@
 `include "../Sl5/sl5.sv"
 `include "../Mux2to1/mux2to1.sv"
 `include "../SignExtender/signExtender.sv"
->>>>>>> refs/remotes/origin/main
 
-module example(A, B, C);
-	// ---- PORT DEFINITIONS ---- //
-<<<<<<< HEAD
-	input  [3:0] A, B;
-	output [3:0] C;
-
-	// ---- MODULE DESIGN IMPLEMENTATION ---- //
-
-	// mix up the input bits
-	assign C = { A[0], B[2], A[1], B[3] };
-=======
+module datapath
 	(input clk, reset,                    //clock inputs
 	memToReg, pcSrc, aluSrc, regDst,      //mux select pints
 	writeEnable,                          //writeEnable pin for writing to Regs
@@ -93,7 +78,6 @@ module example(A, B, C);
 	  //Another mux that does stuff, chooses between srcA and srcB
 	alu Alu(.clk(clk), .a(srcA), .b(srcB), .alucontrol(aluControl), .result(aluOut), .pc(pc), .zero(zero));
 	  //Alu is the ALU
->>>>>>> refs/remotes/origin/main
 
 endmodule
 

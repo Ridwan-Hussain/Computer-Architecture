@@ -22,7 +22,7 @@
 module controller(op, zero, regdst, jump, memtoreg, aluop, memwrite, alusrc, regwrite, pcsrc, alucontrol);
 	input logic [4:0]op;
 	input logic zero;
-	output logic regdst, branch, jump, memtoreg, memwrite, alusrc, regwrite, pcsrc;
+	output logic regdst, jump, memtoreg, memwrite, alusrc, regwrite, pcsrc;
 	output logic [3:0] alucontrol;
 
 	logic [1:0] aluop;
