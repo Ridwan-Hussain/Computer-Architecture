@@ -22,7 +22,7 @@ module signExtender
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	assign msb = numIn[15];
-	assign numOut = {msb, msb, msb, msb, msb, msb, msb, msb, msb, msb, msb, msb, msb, msb, msb, msb, numIn};
+	assign numOut = {{16{msb}}, numIn};
 
 endmodule
 

@@ -50,29 +50,31 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
   - The universal timescale is 1ns/100ps (each tick/#1 is 1ns with a precision of 100ps)
   - The clock has a period of 2ns, so a frequency of 500 MHz
   - 50% duty cycle (turns on for 1ns, then off for 1ns, and repeats)
-- [x] Data mem
-  - 
-- [x] Instruction Mem
-  - 
-- [x] Register File
-  - 
-- [ ] ALU
+- [x] Dmem (Data Memory)
+  - registers are written to on rising edge
+- [x] Imem (Instruction Memory)
+  - registers are read on falling edge
+- [x] RegFile (Register File)
+  - Registers are written on rising edge and read on falling edge
+- [ ] ALU (Arithmetic Logic Unit)
   - 
 - [ ] Adder
   - 
-- [x] Shift left two
-  - 
+- [x] Sl2 (Shift Left Two)
+  - Shifts the bits by 2 (or times by 4)
+  - The two most significant bits are dropped
 - [x] Sign Extender
-  - 
-- [x] D Flip-Flop
-  - 
-- [x] Multiplexer 2:1 (could be diff for us)
-  - 
+  - Sign Extends a number from 16bits to 32bits
+- [x] DFF (D Flip-Flop)
+  - 32 D Flip-Flops made with enable, async reset, and is read on rising edge
+  - Made using Structural Code
+- [x] Mux2to1 (2:1 Multiplexer)
+  - Decides which data input to output based on a select pin
 - [ ] CPU (MIPS) (diff for us I think)
   - 
-- [ ] Controller
+- [ ] Control Unit
   - 
-- [ ] Main Decoder
+- [ ] MainDec (Main Decoder)
   - 
 - [ ] Datapath
   - 
@@ -85,9 +87,11 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
   - [ ] CPU
   - [ ] Computer (?)
 - [ ] Decide memory map layout
+  - [ ] Figure out what r really is and if it should be 6 or 7
 - [ ] Make this document presentable for submission
 - [ ] Type up assmebly code w/ our instructions
 - [ ] Show hand compiled assembly code
+- 
 
 Start of File Code Stuff:
 ```
