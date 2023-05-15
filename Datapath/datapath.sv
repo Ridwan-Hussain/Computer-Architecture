@@ -67,7 +67,7 @@ module datapath
 	  //This is the mux that decides what the next cycle will be for the PC
 
 	//Register File Logic
-	regFile registerFile(.clk(clk), .writeEnable(writeEnable), .readReg1(iRegS), .readReg2(iRegT), .writeReg(writeReg), .writeData(result), .readData1(srcA), .readData2(writeData));
+	regFile rf(.clk(clk), .writeEnable(writeEnable), .readReg1(iRegS), .readReg2(iRegT), .writeReg(writeReg), .writeData(result), .readData1(srcA), .readData2(writeData));
 	  //The registerFile for the Single-Cycle Implementation
 	mux2to1 #(7) wrMux(.select(regDst), .data0(iRegT), .data1(iRegD), .dataOut(writeReg));
 	  //The mux that depends on what to write
@@ -79,9 +79,9 @@ module datapath
 	// ALU logic
 	mux2to1 #(n) srcBMux (.select(aluSrc), .data0(writeData), .data1(signExtImm), .dataOut(srcB));
 	  //Another mux that does stuff, chooses between srcA and srcB
-	alu Alu(.clk(clk), .a(srcA), .b(srcB), .alucontrol(aluControl), .result(aluOut), .pc(pc), .zero(zero));
+	alu alu(.clk(clk), .a(srcA), .b(srcB), .alucontrol(aluControl), .result(aluOut), .pc(pc), .zero(zero));
 	  //Alu is the ALU
 
 endmodule
 
-`endif // EXAMPLE
+`endif // datapath
