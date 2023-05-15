@@ -17,8 +17,7 @@
 
 module tb_aluDec();
         reg [4:0] op;
-        reg [1:0] aluop;
-	wire [3:0] alucontrol; 
+				wire [3:0] alucontrol; 
         int i;
 
         aluDec uut(.op(op), .aluop(aluop), .alucontrol(alucontrol));
