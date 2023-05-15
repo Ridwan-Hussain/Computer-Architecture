@@ -17,21 +17,22 @@
 `include "../FullAdder/fullAdder.sv"
 `timescale 1ns/100ps
 
-module adder32Bit(A, B, Cin, Cout, Sum);
-	input [31:0]A, B;
-	input Cin;
-	output Cout;
-	output [31:0] Sum;
-	wire [31:0]carries;
+module adder32Bit
+	#(parameter n = 32)(	
+	input [(n-1):0]A, B,
+	input Cin,
+	output Cout,
+	output [(n-1):0] Sum);
+	wire [(n-1):0] carries;
 	assign carries[0] = Cin;
 	
 	genvar i;
-	generate for(i = 0; i < 31; i = i + 1)
+	generate for(i = 0; i < (n-1); i = i + 1)
 		begin
 			fullAdder bits(.In1(A[i]), .In2(B[i]), .Cin(carries[i]), .Sum(Sum[i]), .Cout(carries[i+1]));
 		end
 	endgenerate
-	fullAdder bit31(.In1(A[31]), .In2(B[31]), .Cin(carries[31]), .Sum(Sum[31]), .Cout(Cout));
+	fullAdder bit31(.In1(A[(n-1)]), .In2(B[(n-1)]), .Cin(carries[(n-1)]), .Sum(Sum[(n-1)]), .Cout(Cout));
 
 endmodule // bit32Adder
 `endif

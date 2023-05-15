@@ -16,36 +16,38 @@
 `timescale 1ns/100ps
 `include "adder32Bit.sv"
 
-
-module tb_adder32Bit();
-        reg [31:0]x, y;
+module tb_adder32Bit
+	#(parameter n = 32);
+	reg [(n-1):0]x, y;
 	reg cin;
-        wire [31:0] s;
+  wire [(n-1):0] s;
 	wire cout;
 
         adder32Bit uut (.A(x), .B(y), .Cin(cin), .Cout(cout), .Sum(s));
 
         initial
         begin
-                $display("A\t\t\t\t\tB\t\t\t\t\tCin\tSum\t\t\t\t\tCout");
-                $monitor("%b\t%b\t%b\t%b\t%b", a, b, cin, s, cout);
+          $dumpfile("adder32Bit.vcd");
+					$dumpvars(0, uut);
+					$display("A\t\t\t\t\tB\t\t\t\t\tCin\tSum\t\t\t\t\tCout");
+          $monitor("%b\t%b\t%b\t%b\t%b", x, y, cin, s, cout);
         end
 
         initial
         begin
 
-                x = 32'b11111111111111111111111111111111;
-                y = 32'b00000000000000000000000000000000;
+                x = #(n)'b11111111111111111111111111111111;
+                y = #(n)'b00000000000000000000000000000000;
 		cin = 1'b0;
 		
 		#10
-		x = 32'b00000000000000000000000000000000;
-		y = 32'b00000000000000000000000000000000;
+		x = #(n)'b00000000000000000000000000000000;
+		y = #(n)'b00000000000000000000000000000000;
 		cin = 1'b1;
 
 		#10
-		x = 32'b00000000000000000000000000000001;
-		y = 32'b00000000000000000000000000000011;
+		x = #(n)'b00000000000000000000000000000001;
+		y = #(n)'b00000000000000000000000000000011;
 		cin = 1'b1;
         end
 endmodule // tb_adder32Bit
