@@ -24,6 +24,7 @@
 `include "../SignExtender/signExtender.sv"
 
 module datapath
+	#(parameter n = 32, parameter r = 7)
 	(input clk, reset,                    //clock inputs
 	memToReg, pcSrc, aluSrc, regDst,      //mux select pints
 	writeEnable,                          //writeEnable pin for writing to Regs
@@ -36,27 +37,29 @@ module datapath
 	aluOut,                               //Output from the ALU
 	writeData);                           //Data to be written onto a register
 
+	reg [6:0] iRegS, iRegT, iRegD;
+	reg [12:0] iImm;
 	assign iRegS = instruction[26:10];    //Register Source from Instruction
 	assign iRegT = instruction[19:13];    //Register Target from Insturction
 	assign iRegD = instruction[12:6];     //Register Destination from Instruction
-	assign iImm = instruction[13:0];      //Immediate from Instruction
+	assign iImm = instruction[12:0];      //Immediate from Instruction
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	reg Cout1, Cout2;                                       //
-	reg [r:0] writeReg;                                     //
-	reg [(n-1):0] pcNext, pcNextBranch, pcPlus32, pcBranch, // 
-		signExtImm, signExtImmSh,                             // 
-		srcA, scrB,                                           //
-	  result;                                               //
+	reg [(r-1):0] writeReg;                                     //
+	reg [(n-1):0] pcNext, pcNextBranch, pcPlus32, pcBranch, 
+		signExtImm, signExtImmSh, 
+		srcA, srcB, 
+		result;                                               //
 			
 	//Determines what the next PC logic is
-	dff #(128) pcreg(.clk(clk), .reset(reset), .enable(1), .D(pcNext), .Q(pc));
+	dff #(n) pcreg(.clk(clk), .reset({32{reset}}), .enable(1), .D(pcNext), .Q(pc));
 	  //DFF that stores all of the instructions that will be used for PC
-	adder32Bit pcAdd32(.A(pc), .B(32), .Cin(0), .Cout(Cout1), .Sum(pcPlus32));
+	adder32Bit pcAdd32(.A(pc), .B(32), .Cin(1'b0), .Cout(Cout1), .Sum(pcPlus32));
 	  //Adds 32 to the PC, since memory is word addressable for us, for Register instruction type
 	sl5 signShift(.num(signExtImm), .num32(signExtImmSh));
 	  //Shifts the signExtended number by 5
-	adder32Bit pcAdd32again(.A(pcPlus32), .B(signExtImmSh), .Cin(0), .Cout(Cout2), .Sum(pcBranch));
+	adder32Bit pcAdd32again(.A(pcPlus32), .B(signExtImmSh), .Cin(1'b0), .Cout(Cout2), .Sum(pcBranch));
 	  //Adds 32 to the PC if for Immediate instruction type
 	mux2to1 #(n) pcBranchMux(.select(pcSrc), .data0(pcPlus32), .data1(pcBranch), .dataOut(pcNextBranch));
 	  //This is a mux for pc Branch, decides which branch the PC works on
