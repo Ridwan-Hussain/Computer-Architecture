@@ -16,7 +16,7 @@
 
 `timescale 1ns/100ps
 
-`include "computer.sv"
+`include "./computer.sv"
 `include "../Clock/clock.sv"
 
 module tb_computer;
@@ -26,7 +26,7 @@ module tb_computer;
   logic clk_enable;
   logic reset;
   logic memwrite;
-  logic [31:0] writedata;
+	logic [31:0] writedata;
   logic [31:0] dataadr;
 
   logic firstTest, secondTest;
@@ -66,8 +66,7 @@ module tb_computer;
       $display("+");
       $display("\t+instr = 0x%8h",dut.instr);
       $display("\t+op = 0b%5b",dut.mips.c.op);
-      $display("\t+controls = 0b%9b",dut.mips.c.md.controls);
-      
+      $display("\t+controls = 0b%9b",dut.mips.c.md.controls);      
       $display("\t+aluop = 0b%2b",dut.mips.c.ad.aluop);
       $display("\t+alucontrol = 0b%4b",dut.mips.c.ad.alucontrol);
       $display("\t+alu result = 0x%8h",dut.mips.dp.alu.result);

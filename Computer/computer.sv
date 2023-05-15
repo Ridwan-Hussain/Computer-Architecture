@@ -22,7 +22,7 @@
 
 module computer(clk, reset, writedata, dataadr, memwrite);
 	input logic clk, reset;
-	input logic [31:0] writedata, dataadr;
+	output logic [31:0] writedata, dataadr;
 	output logic memwrite;
 
 	logic [31:0] pc, instr, readdata;
