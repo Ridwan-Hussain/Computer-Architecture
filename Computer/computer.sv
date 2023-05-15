@@ -27,14 +27,13 @@ module computer(clk, reset, writedata, dataadr, memwrite);
 
 	logic [31:0] pc, instr, readdata;
 
-    // computer internal components
-
-    // the RISC CPU
-    cpu mips(clk, reset, pc, instr, memwrite, dataadr, writedata, readdata);
-    // the instruction memory ("text segment") in main memory
-    imem imem(pc[8:2], instr);
-    // the data memory ("data segment") in main memory
-    dmem dmem(clk, memwrite, dataadr, writedata, readdata);
+  // computer internal components
+  // the RISC CPU
+  cpu mips(clk, reset, pc, instr, memwrite, dataadr, writedata, readdata);
+  // the instruction memory ("text segment") in main memory
+  imem imem(pc[8:2], instr);
+  // the data memory ("data segment") in main memory
+  dmem dmem(clk, memwrite, dataadr, writedata, readdata);
 
 endmodule
 
