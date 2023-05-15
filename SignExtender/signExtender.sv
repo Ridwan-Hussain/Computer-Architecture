@@ -5,8 +5,8 @@
 //                                                                              //
 //     Create Date: 2023-05-12                                                  //
 //     Module Name: signExtender                                                //
-//     Description: Extends the number of bits a number is from 16 bits to 32   //
-//     bits, taking into account that the numbers are 2's complement.           //
+//     Description: Extends the number of bits a number is from 13 bits to 32   //
+//     bits; this is done fo the immediate type instruction.                    //
 //                                                                              //
 // Revision: 1.0                                                                //
 //                                                                              //
