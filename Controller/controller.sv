@@ -7,7 +7,7 @@
 //     Module Name: controller                                                  //
 //     Description: Controller Unit                                             //
 //                                                                              //
-// Revision: 1.0                                                                //
+// Revision: 1.2                                                                //
 //                                                                              //
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -17,23 +17,19 @@
 `timescale 1ns/100ps
 
 `include "../MainDec/mainDec.sv"
-`include "../AluDec/aluDec.sv"
+//`include "../AluDec/aluDec.sv"
 
-module controller(op, zero, regdst, jump, memtoreg, memwrite, alusrc, regwrite, pcsrc, alucontrol);
-	input logic [4:0] op;
-	input logic zero;
-	output logic regdst, jump, memtoreg, memwrite, alusrc, regwrite, pcsrc;
-	output logic [3:0] alucontrol;
-
-	logic [1:0] aluop;
-	logic branch;
-    
+module controller
+	(input logic [4:0] opCode,
+	input logic zero,
+	output logic regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc,
+	output logic [3:0] aluControl);
+ 
 	// CPU main decoder
-	mainDec md(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);
-	// CPU's ALU decoder
-	aluDec  ad(op, aluop, alucontrol);
+	mainDec md(opCode, zero, regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc, aluControl);
+	
 	// AND Gate that is part of Control
-	assign pcsrc = branch & zero;
+	assign branchMuxSelect = branch & zero;
 
 endmodule //controller
 

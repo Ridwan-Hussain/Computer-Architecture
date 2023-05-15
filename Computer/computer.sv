@@ -20,20 +20,20 @@
 `include "../Imem/imem.sv"
 `include "../Dmem/dmem.sv"
 
-module computer(clk, reset, writedata, dataadr, memwrite);
+module computer(clk, reset, writeData, dataAddr, memWrite);
 	input logic clk, reset;
-	output logic [31:0] writedata, dataadr;
-	output logic memwrite;
+	output logic [31:0] writeData, dataAddr;
+	output logic memWrite;
 
-	logic [31:0] pc, instr, readdata;
+	logic [31:0] pc, instr, readData;
 
   // computer internal components
   // the RISC CPU
-  cpu mips(clk, reset, pc, instr, memwrite, dataadr, writedata, readdata);
+  cpu mips(clk, reset, pc, instr, memWrite, dataAddr, writeData, readData);
   // the instruction memory ("text segment") in main memory
   imem imem(pc[8:2], instr);
   // the data memory ("data segment") in main memory
-  dmem dmem(clk, memwrite, dataadr, writedata, readdata);
+  dmem dmem(clk, memWrite, dataAddr, writeData, readData);
 
 endmodule
 

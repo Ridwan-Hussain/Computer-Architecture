@@ -29,6 +29,10 @@ module regFile
 	reg [(n-1):0] rD1, rD2;
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
+	initial begin
+		registers[0] = 0;
+	end
+
 	always @(posedge clk) begin		
 		if (regWrite) begin
 			registers[writeReg] = writeData;

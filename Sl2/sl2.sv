@@ -16,19 +16,21 @@
 `define sl2
 
 module sl2
-	#(parameter n = 32)
+	#(parameter n = 32, parameter m = 32)
 	// ---- PORT DEFINITIONS ---- //
 	(input [(n-1):0] num,
-	output [(n-1):0] num4);
+	output [(m-1):0] num4);
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	genvar i;
-	generate for (i = 0; i < (n - 2); i = i + 1) begin
+	generate for (i = 0; i < (m - 2); i = i + 1) begin
 		or(num4[i+2], num[i], 0);
 	end
 	endgenerate
 	and(num4[0], 0, 0);
 	and(num4[1], 0, 0);
+
+	//assign num4 = num * 4;
 
 endmodule
 

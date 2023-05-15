@@ -15,26 +15,23 @@
 
 `timescale 1ns/100ps
 
-`include "../ControlUnit/controller.sv"
+`include "../Controller/controller.sv"
 `include "../Datapath/datapath.sv"
 
-module cpu(clk, reset, pc, instr, memwrite, aluout, writedata, readdata);
+module cpu
+    	(input  logic clk, reset,
+    	output logic [31:0] pc,
+    	input logic [31:0] instr,
+    	output logic memWrite,
+    	output logic [31:0] aluOut, writeData,
+    	input  logic [31:0] readData);
     
-	
-    	input  logic clk, reset;
-    	output logic [31:0] pc;
-    	input logic [31:0] instr;
-    	output logic memwrite;
-    	output logic [31:0] aluout, writedata;
-    	input  logic [31:0] readdata;
+    	logic memToReg, aluSrc, regDst, regWrite, jump, branch, zero;
+    	logic [3:0] aluControl;
     
-    	logic memtoreg, alusrc, regdst, regwrite, jump, pcsrc, zero;
-    	logic [3:0] alucontrol;
-    
-    	controller c(instr[(31):27], zero, regdst, jump, memtoreg, memwrite, alusrc, regwrite, pcsrc, alucontrol); 
-        
+    	controller c(instr[31:27], zero, regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc, aluControl);
 
-    	datapath #(32) dp(clk, reset, memtoreg, pcsrc, alusrc, regdst, regwrite, jump, alucontrol, instr, readdata, zero, pc, aluout, writedata);
+    	datapath #(32) dp(clk, reset, regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc, branch, aluControl, instr, readData, zero, pc, aluOut, writeData);
 
 endmodule
 

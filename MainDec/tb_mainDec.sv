@@ -16,12 +16,13 @@
 `timescale 1ns/100ps
 
 module tb_mainDec();
-	reg [4:0] op;
-	wire memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump;
-	wire [1:0] aluop;
+	reg [4:0] opCode;
+	reg zero;
+	wire regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc;
+	wire [3:0] aluControl;
 	int i;
 
-	mainDec uut(.op(op), .memtoreg(memtoreg), .memwrite(memwrite), .branch(branch), .alusrc(alusrc), .regdst(regdst), .regwrite(regwrite), .jump(jump), .aluop(aluop));
+	mainDec uut(.opCode(opCode), .zero(zero), .regDst(regDst), .regWrite(regWrite), .branch(branch), .memWrite(memWrite), .memToReg(memToReg), .jump(jump), .aluSrc(aluSrc), .aluControl(aluControl));
 
 	initial
 	begin
@@ -30,19 +31,15 @@ module tb_mainDec();
 	end
 
 	initial
-	begin
-	
-		op <= 5'b00000;
+	begin	
+		opCode <= 5'b00000;
 		for (i = 0; i < 32; i = i + 1)
 		begin
-			op = op + 5'b00001;
+			opCode = opCode + 5'b00001;
 			#1;
 		end
 	
 	end
-
-
-
 
 endmodule // tb_mainDec
 

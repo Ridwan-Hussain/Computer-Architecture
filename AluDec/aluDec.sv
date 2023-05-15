@@ -45,7 +45,7 @@ module aluDec(op, alucontrol);
 			
 			5'b00000: alucontrol <= 4'b0000; //j
 			5'b00111: alucontrol <= 4'b0000; //jal
-
+			default : alucontrol <= 4'bXXXX: //ERROR
      endcase
   end
 
