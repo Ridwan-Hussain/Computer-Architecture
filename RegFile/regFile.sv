@@ -20,7 +20,7 @@
 module regFile
 	// ---- PORT DEFINITIONS ---- //
 	#(parameter n = 32, parameter r = 7)
-	(input clk, writeEnable,
+	(input clk, regWrite,
 	input [(r-1):0] readReg1, readReg2, writeReg, 
 	input [(n-1):0] writeData,
 	output [(n-1):0] readData1, readData2);
@@ -30,7 +30,7 @@ module regFile
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	always @(posedge clk) begin		
-		if (writeEnable) begin
+		if (regWrite) begin
 			registers[writeReg] = writeData;
 		end
 	end
