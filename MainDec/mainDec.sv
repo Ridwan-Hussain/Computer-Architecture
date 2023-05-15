@@ -25,7 +25,7 @@ module mainDec(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, a
 
 	always @* begin
 		// R type, set aluop to 
-		if ((op[1:0] == 2'b01) | (op[1:0] == 2'b01))
+		if ((op[4:3] == 2'b01) | (op[4:3] == 2'b10))
 		begin
 			controls = 9'b000011010;
 	    	end
