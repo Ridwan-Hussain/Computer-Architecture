@@ -21,7 +21,8 @@ module alu(clk, a, b, alucontrol, result, pc, zero);
     input  logic clk;
     input  logic [31:0] a, b;
     input  logic [3:0]  alucontrol;
-    output logic [31:0] result, pc;
+    output logic [31:0] result;
+		input logic [31:0] pc;
     output logic zero;
 
 
