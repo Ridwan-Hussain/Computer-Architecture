@@ -4,26 +4,26 @@
 // Engineers: Ridwan Hussain and Ilona Lameka                                   //
 //                                                                              //
 //     Create Date: 2023-05-06                                                  //
-//     Module Name: adder32Bit                                                  //
-//     Description: 32 bit adder                                                //
+//     Module Name: adder                                                       //
+//     Description: Test bench for 32 bit adder.                                //
 //                                                                              //
 // Revision: 1.0                                                                //
 //                                                                              //
 //////////////////////////////////////////////////////////////////////////////////
-`ifndef TB_ADDER32BIT
-`define TB_ADDER32BIT
+`ifndef TB_ADDER
+`define TB_ADDER
 
 `timescale 1ns/100ps
-`include "adder32Bit.sv"
+`include "adder.sv"
 
-module tb_adder32Bit
+module tb_adder
 	#(parameter n = 32);
 	reg [(n-1):0]x, y;
 	reg cin;
   wire [(n-1):0] s;
 	wire cout;
 
-        adder32Bit uut (.A(x), .B(y), .Cin(cin), .Cout(cout), .Sum(s));
+        adder uut (.A(x), .B(y), .Cin(cin), .Cout(cout), .Sum(s));
 
         initial
         begin
@@ -50,5 +50,5 @@ module tb_adder32Bit
 		y = #(n)'b00000000000000000000000000000011;
 		cin = 1'b1;
         end
-endmodule // tb_adder32Bit
+endmodule // tb_adder
 `endif

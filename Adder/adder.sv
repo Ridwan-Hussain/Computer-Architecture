@@ -4,20 +4,20 @@
 // Engineers: Ridwan Hussain and Ilona Lameka                                   //
 //                                                                              //
 //     Create Date: 2023-05-06                                                  //
-//     Module Name: adder32Bit                                                  //
+//     Module Name: adder                                                       //
 //     Description: 32 bit adder                                                //
 //                                                                              //
 // Revision: 1.0                                                                //
 //                                                                              //
 //////////////////////////////////////////////////////////////////////////////////
 
-`ifndef ADDER32BIT
-`define ADDER32BIT
+`ifndef ADDER
+`define ADDER
 
 `include "../FullAdder/fullAdder.sv"
 `timescale 1ns/100ps
 
-module adder32Bit
+module adder
 	#(parameter n = 32)(	
 	input [(n-1):0]A, B,
 	input Cin,
@@ -34,5 +34,5 @@ module adder32Bit
 	endgenerate
 	fullAdder bit31(.In1(A[(n-1)]), .In2(B[(n-1)]), .Cin(carries[(n-1)]), .Sum(Sum[(n-1)]), .Cout(Cout));
 
-endmodule // bit32Adder
+endmodule // Adder
 `endif
