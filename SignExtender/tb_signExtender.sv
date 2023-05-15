@@ -16,27 +16,27 @@
 
 module tb_signExtender;
   // ---- Defining variables to be used ---- //
-	reg signed [15:0] num16bit;   //inputs are reg for test bench
+	reg signed [12:0] num13bit;   //inputs are reg for test bench
 	wire signed [31:0] num32bit;     //outputs are wire for test bench
    
 	// ---- INSTANTIATE UNIT UNDER TEST (UUT) ---- //
-	signExtender uut(.numIn(num16bit), .numOut(num32bit));
+	signExtender uut(.numIn(num13bit), .numOut(num32bit));
 	
 	// ---- INITIALIZE TEST BENCH ---- //
 	initial begin
 		$dumpfile("signExtender.vcd"); // for Makefile, make dump file same as module name
 		$dumpvars(0, uut);
-		$monitor("16bitNum=%b=%d, 32bitNum=%b=%d", num16bit, num16bit, num32bit, num32bit);
+		$monitor("13bitNum=%b=%d, 32bitNum=%b=%d", num13bit, num13bit, num32bit, num32bit);
 	end
 
 	//apply input vectors
 	initial begin: apply_stimulus
-		#1 num16bit = 10;
-		#1 num16bit = 2237;
-		#1 num16bit = -24;
-		#1 num16bit = -1234;
-		#1 num16bit = 32767;
-		#1 num16bit = -32768;
+		#1 num13bit = 10;
+		#1 num13bit = 2237;
+		#1 num13bit = -24;
+		#1 num13bit = -1234;
+		#1 num13bit = 3267;
+		#1 num13bit = -3268;
 		$finish;
 	end
 

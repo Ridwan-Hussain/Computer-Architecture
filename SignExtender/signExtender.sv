@@ -17,12 +17,12 @@
 
 module signExtender
 	// ---- PORT DEFINITIONS ---- //
-	(input  [15:0] numIn,
+	(input  [12:0] numIn,
 	output [31:0] numOut);
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
-	assign msb = numIn[15];
-	assign numOut = {{16{msb}}, numIn};
+	assign msb = numIn[12];
+	assign numOut = {{19{msb}}, numIn};
 
 endmodule
 
