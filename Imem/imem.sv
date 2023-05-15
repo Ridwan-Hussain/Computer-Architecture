@@ -19,8 +19,8 @@
 module imem
 	#(parameter n = 32, parameter r = 7)
 	// ---- PORT DEFINITIONS ---- //
-	(input [(r-1):0] addr, 
-	output [(n-1):0] readData);
+	(input [(r-1):0] readAddr, 
+	output [(n-1):0] instr);
 	
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	reg [(n-1):0] RAM[0:(2**r-1)];
@@ -31,8 +31,7 @@ module imem
 		//out .gitignore file.
 	end
 
-	// mix up the input bits
-	assign readData = RAM[addr]; //word aligned
+	assign instr = RAM[readAddr]; //word aligned
 
 endmodule
 
