@@ -7,8 +7,6 @@ https://github.com/robmarano/cpu_hdl_catalog/tree/STEP-01
 # OttoBit Spreadsheet 
 https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts/15/Doc.aspx?action=edit&sourcedoc=%7B2cd312b1-8aa7-483c-a74d-31bccdc8a4b7%7D&wdOrigin=TEAMS-WEB.teamsSdk.openFilePreview&wdExp=TEAMS-CONTROL&web=1
 
-<<<<<<< HEAD
-=======
 # ISA for Besties CPU
 ![image](https://github.com/Ridwan-Hussain/Computer-Architecture/assets/114603278/48548477-219a-45a8-9fb7-18185bfe5cf4)
 <sup>Register, Immediate, and Address Instruction Types Formating</sup>
@@ -40,7 +38,6 @@ https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts
 - Registers are written on rising edge, and are read on falling edge (not async)
 - for our code, n=32 bits and r=7 bits
 
->>>>>>> refs/remotes/origin/main
 # Components Made in Verilog:
 - [x] Clock 
 - [ ] Data mem
