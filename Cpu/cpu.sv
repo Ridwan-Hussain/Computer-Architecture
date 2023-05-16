@@ -31,7 +31,7 @@ module cpu
     
     	controller c(instr[31:27], zero, regDst, regWrite, branch, memWrite, memToReg, jump, jalSelect, jalSelect2, jrSelect, aluSrc, aluControl);
 
-    	datapath #(32) dp(clk, reset, regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc, branch, aluControl, instr, readData, zero, pc, aluOut, writeData);
+    	datapath #(32) dp(clk, reset, regDst, regWrite, branch, memWrite, memToReg, jump, jalSelect, jalSelect2, jrSelect, aluSrc, branch, aluControl, instr, readData, zero, pc, aluOut, writeData);
 
 endmodule
 

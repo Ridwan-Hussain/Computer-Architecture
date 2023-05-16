@@ -50,7 +50,8 @@ module tb_datapath;
   always #5 clk = ~clk;
 	
 initial begin
-		
+		$dumpfile("datapath.vcd");
+		$dumpvars(0, dut);
 		$monitor("clk%b\treset%b\tredDst%b\tregWrite%b\tbranch%b\tmemWrite%b\tmemToReg%b\tjump%b\taluSrc%b\taluControl%b\tinstruction%b\treadDate%b\t%zerob\tpc%b\taluOut%b\twriteData%b", clk,reset,regDst,regWrite,branch,memWrite,memToReg,jump,aluSrc,aluControl,instruction,readData,zero, pc,aluOut, writeData);
 	end
   // Test stimulus
@@ -84,7 +85,7 @@ initial begin
     #10 jump = 0;
     #10 aluSrc = 0;
     #10 aluControl = 4'b0000; // Provide the appropriate ALU control signal for your instruction
-    #10 instruction = 32'h; // Provide the instruction
+    #10 instruction = 32'b11000000000000111010000000000001; // Provide the instruction
     #10 readData = 32'h00000001;
 
     // Add more test cases as needed
