@@ -8,6 +8,9 @@ https://github.com/robmarano/cpu_hdl_catalog/tree/STEP-01
 https://cooperunion.sharepoint.com/:x:/r/sites/Section_ECE-251-A-2023SP/_layouts/15/Doc.aspx?action=edit&sourcedoc=%7B2cd312b1-8aa7-483c-a74d-31bccdc8a4b7%7D&wdOrigin=TEAMS-WEB.teamsSdk.openFilePreview&wdExp=TEAMS-CONTROL&web=1
 
 # ISA for Besties CPU
+![image](https://github.com/Ridwan-Hussain/Computer-Architecture/assets/114603278/b86b4ca5-3611-4f51-b5e2-3201a9b521e0)
+<sup>Datapath for our CPU.</sup>
+
 ![image](https://github.com/Ridwan-Hussain/Computer-Architecture/assets/114603278/d3ffbb4a-12b0-439f-a2ce-7703e0aa9b65)
 <sup>Register, Immediate, and Address Instruction Types Formating</sup>
 
