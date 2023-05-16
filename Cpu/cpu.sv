@@ -26,10 +26,10 @@ module cpu
     	output logic [31:0] aluOut, writeData,
     	input  logic [31:0] readData);
 			
-    	logic memToReg, aluSrc, regDst, regWrite, jump, branch, zero;
+    	logic memToReg, aluSrc, regDst, regWrite, jump, branch, zero, jalSelect, jalSelect2, jrSelect;
     	logic [3:0] aluControl;
     
-    	controller c(instr[31:27], zero, regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc, aluControl);
+    	controller c(instr[31:27], zero, regDst, regWrite, branch, memWrite, memToReg, jump, jalSelect, jalSelect2, jrSelect, aluSrc, aluControl);
 
     	datapath #(32) dp(clk, reset, regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc, branch, aluControl, instr, readData, zero, pc, aluOut, writeData);
 

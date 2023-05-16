@@ -22,11 +22,11 @@
 module controller
 	(input logic [4:0] opCode,
 	input logic zero,
-	output logic regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc,
+	output logic regDst, regWrite, branch, memWrite, memToReg, jump, jalSelect, jalSelect2, jrSelect, aluSrc,
 	output logic [3:0] aluControl);
  
 	// CPU main decoder
-	mainDec md(opCode, zero, regDst, regWrite, branch, memWrite, memToReg, jump, aluSrc, aluControl);
+	mainDec md(opCode, zero, regDst, regWrite, branch, memWrite, memToReg, jump, jalSelect, jalSelect2, jrSelect, aluSrc, aluControl);
 	
 	// AND Gate that is part of Control
 	assign branchMuxSelect = branch & zero;
