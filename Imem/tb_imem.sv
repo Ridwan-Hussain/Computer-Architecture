@@ -18,27 +18,27 @@
 module tb_imem
 	// ---- Defining variables to be used ---- //
 	#(parameter n = 32, parameter r = 7);
-	reg [(r-1):0] addr;   //inputs are reg for test bench
-	wire [(n-1):0] readData;     //outputs are wire for test bench
+	reg [(r-1):0] readAddr;   //inputs are reg for test bench
+	wire [(n-1):0] instruction;     //outputs are wire for test bench
    
 	// ---- INSTANTIATE UNIT UNDER TEST (UUT) ---- //
-	imem uut(.addr(addr), .readData(readData));
+	imem uut(.readAddr(readAddr), .instr(instruction));
 	
 	// ---- INITIALIZE TEST BENCH ---- //
 	initial begin
 		$dumpfile("imem.vcd"); // for Makefile, make dump file same as module name
 		$dumpvars(0, uut);
-		$monitor("addr=%x, readData=%x", addr, readData);
+		$monitor("addr=%x, readData=%x", readAddr, instruction);
 	end
 
 	initial begin: apply_stimulus
-		#20 addr <= #(r)'b0000001; //First line of the file
-		#20 addr <= #(r)'b0000011; //3rd line
-		#20 addr <= #(r)'b0000111; //9th line
-		#20 addr <= #(r)'b0001111; //15th line
-		#20 addr <= #(r)'b0011111; //31st line
-		#20 addr <= #(r)'b0111111; //63rd line
-		#20 addr <= #(r)'b1000000; //Last line of the file
+		#10 readAddr <= #(r)'b0000001; //First line of the file
+		#10 readAddr <= #(r)'b0000011; //3rd line
+		#10 readAddr <= #(r)'b0000111; //9th line
+		#10 readAddr <= #(r)'b0001111; //15th line
+		#10 readAddr <= #(r)'b0011111; //31st line
+		#10 readAddr <= #(r)'b0111111; //63rd line
+		#10 readAddr <= #(r)'b1000000; //Last line of the file
 		$finish;
 	end
 

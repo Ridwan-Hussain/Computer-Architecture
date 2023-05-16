@@ -19,20 +19,19 @@
 module imem
 	#(parameter n = 32, parameter r = 7)
 	// ---- PORT DEFINITIONS ---- //
-	(input [(r-1):0] addr, 
-	output [(n-1):0] readData);
+	(input [(r-1):0] readAddr, 
+	output [(n-1):0] instr);
 	
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	reg [(n-1):0] RAM[0:(2**r-1)];
 
 	initial begin
-		$readmemh("program_exe", RAM);
+		$readmemb("program_exe", RAM);
 		//We're calling our output file program_exe instead of program.exe because
 		//out .gitignore file.
 	end
 
-	// mix up the input bits
-	assign readData = RAM[addr]; //word aligned
+	assign instr = RAM[readAddr]; //word aligned
 
 endmodule
 

@@ -18,13 +18,13 @@
 module tb_regFile
 	// ---- Defining variables to be used ---- //
 	#(parameter n = 32, parameter r = 7);
-	reg clk, clkEnable, writeEnable;   //inputs are reg for test bench
+	reg clk, clkEnable, regWrite;   //inputs are reg for test bench
 	reg [(r-1):0] readReg1, readReg2, writeReg;
 	reg [(n-1):0] writeData;
 	wire [(n-1):0] readData1, readData2;     //outputs are wire for test bench
    
 	// ---- INSTANTIATE UNIT UNDER TEST (UUT) ---- //
-	regFile uut(.clk(clk), .writeEnable(writeEnable), .readReg1(readReg1), .readReg2(readReg2), .writeReg(writeReg), .writeData(writeData), .readData1(readData1), .readData2(readData2));
+	regFile uut(.clk(clk), .regWrite(regWrite), .readReg1(readReg1), .readReg2(readReg2), .writeReg(writeReg), .writeData(writeData), .readData1(readData1), .readData2(readData2));
 	clock uut1(.clk(clk), .enable(clkEnable));
 	
 	// ---- INITIALIZE TEST BENCH ---- //
@@ -32,7 +32,7 @@ module tb_regFile
 		$dumpfile("regFile.vcd"); // for Makefile, make dump file same as module name
 		$dumpvars(0, uut, uut1);
 		$monitor("rR1=%x, rD1=%x, rR2=%x, rD2=%x", readReg1, readData1, readReg2, readData2);
-		$monitor("clk=%b, wE=%x, wR=%x, wD=%x", clk, writeEnable, writeReg, writeData);
+		$monitor("clk=%b, wE=%x, wR=%x, wD=%x", clk, regWrite, writeReg, writeData);
 	end
 
 	//apply input vectors
@@ -40,12 +40,12 @@ module tb_regFile
 		reg[6:0] tVect; //tVect[5] terminates the for loop
 		reg[5:0] counter1 = 0;
 		reg[5:0] counter2 = 0;
-		writeEnable = 1;
+		regWrite = 1;
 		clkEnable = 1;
 		readReg1 = 102;
 		//We expect that readData1 will return XXXXXXX until we reach clock cycle 32
 		//We also expect there to be two cycles that readData1 returns XXXXXXXX
-		//One because we turn off writeEnable for one cycle, another because we
+		//One because we turn off regWrite for one cycle, another because we
 		//write to the register readData2 is looking at, not readData1
 		//readData1 will update it's current timestamp every 8 cycles (so should
 		//increment by 8).
@@ -53,10 +53,10 @@ module tb_regFile
 			writeData = tVect;
 			writeReg = 64 - tVect;
 			if (counter1 == 7) begin
-				writeEnable = 0;
+				regWrite = 0;
 			end
 			if (counter1 == 8) begin
-				writeEnable = 1;
+				regWrite = 1;
 				counter1 = 0;
 			end
 			if (counter2 == 8) begin

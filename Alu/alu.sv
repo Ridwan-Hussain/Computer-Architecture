@@ -16,82 +16,69 @@
 
 `timescale 1ns/100ps
 
-module alu(clk, a, b, alucontrol, result, pc, zero);
-    
-    input  logic clk;
-    input  logic [31:0] a, b;
-    input  logic [3:0]  alucontrol;
-    output logic [31:0] result;
-		input logic [31:0] pc;
-    output logic zero;
+module alu
+		#(parameter n = 32)(
+    input logic clk,
+    input logic [(n-1):0] A, B, 
+		input logic [3:0] aluControl,
+    output logic [(n-1):0] result,
+    output logic zero);
 
-
-    //
     // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
-    //
-    logic [31:0] condinvb, sum;
-    //logic [63:0] HiLo;
-
+    logic [31:0] invB, sum;
+		assign invB = ~(A);
     assign zero = (result == {32{1'b0}}); // zero result control signal
 
-    // initialize the internal HiLo register used in multiplying two 32-bit numbers = a 64-bit number.
-    //initial
-        //begin
-          //  HiLo = 64'b0;
-        //end
+    always @(A, B, aluControl) begin
+        case (aluControl)
+            	4'b0000: result = A + B;           //add
+            	4'b0001: result = A + invB + 1'b1; //sub
+							4'b0010: result = A << B;          //sl
+							4'b0011: result = A >> B;          //sr
+							4'b0100: result = A & B;           //and
+            	4'b0101: result = A | B;           //or
+							4'b0110: result = A ^ B;           //xor
+							4'b0111: result = ~(A | B);        //nor
+							4'b1000: result = ~(A & B);        //nand
+							4'b1001: result = ~(A);            //not
+							4'b1010: result = A + B;           //jr
 
-    always @(a,b,alucontrol) begin
-        case (alucontrol)
-            	4'b0000: result = a + b; // add
-            	4'b0001: result = a + (~b + 1'b1); // sub
-							4'b0100: result = a << b; //sl
-//							4'b0101: result = a >> b; //sr
-							4'b0110: result = a & b; // and
-            	4'b0111: result = a | b; // or
-//							4'b1000: result = a^b; // xor
-//							4'b1001: result = ~(a | b); //nor
-							4'b1010: result = a; //jr
-//							4'b1011: result = ~(a & b); // nand
-							4'b1100: result = ~(a); //not
-
-							4'b1101: begin                       // slt
-								if (a[31] != b[31])
-									if (a[31] > b[31])
-										result = 1;
-									else
-										result = 0;
-								else
-									if (a < b)
-										result = 1;
-									else
-										result = 0;
+							4'b1011: begin                     //slt
+								if (A[31] != B[31]) begin
+									if (A[31] > B[31]) begin 
+											result = 1;
+									end else begin
+											result = 0;
+									end 
+								end else begin 
+										if (A < B) begin
+											result = 1;
+										end	else begin
+											result = 0;
+										end
+								end
 							end
-							4'b1110: begin //sgt
-								if (a[31] != b[31])
-									if (a[31] < b[31])
+				
+							4'b1100: begin                     //sgt
+								if (A[31] != B[31]) begin
+									if (A[31] < B[31]) begin
 										result = 1;
-									else
+									end else begin
 										result = 0;
-								else
-									if (a > b)
+									end
+								end else begin
+									if (A > B) begin
 										result = 1;
-								else
+									end else begin
 									result = 0;
+									end
+								end
 							end
-			endcase
-    end
+							
+							//4'b1101: 
 
-    //Multiply and divide results are only stored at clock falling edge.
-    //always @(negedge clk) begin
-      //  case (alucontrol)
-        //    4'b0010: HiLo = a * b; // mult
-          //  4'b0011: // div
-            //begin
-              //  HiLo[31:0] = a / b;
-                //HiLo[63:32] = a % b;
-          //  end
-       // endcase				
-   // end
+				endcase
+    end
 
 endmodule  //alu
 
