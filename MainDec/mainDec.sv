@@ -39,7 +39,7 @@ module mainDec(opCode, zero, regDst, regWrite, branch, memWrite, memToReg, jump,
 			5'b01111: controls <= 14'b1100_0000_0001_11; //nor
 			5'b10000: controls <= 14'b1100_0000_0010_00; //nand
 			5'b10001: controls <= 14'b1100_0000_0010_01; //not
-			5'b10010: controls <= 14'b0000_0100_1010_10; //jr
+			5'b10010: controls <= 14'b0000_0000_1000_00; //jr
 			5'b10011: controls <= 14'b1100_0000_0010_11; //slt
 			5'b10100: controls <= 14'b1100_0000_0011_00; //sgt
 

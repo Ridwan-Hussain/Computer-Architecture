@@ -75,8 +75,6 @@ module alu
 								end
 							end
 							
-							//4'b1101: 
-
 				endcase
     end
 
