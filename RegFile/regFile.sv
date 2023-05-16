@@ -31,6 +31,8 @@ module regFile
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
 	initial begin
 		registers[0] = 0;
+		registers[1] = 1;
+		registers[2] = 2;
 	end
 
 	always @(posedge clk) begin		

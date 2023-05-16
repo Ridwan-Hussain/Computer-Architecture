@@ -32,7 +32,7 @@ module alu
     always @(A, B, aluControl) begin
         case (aluControl)
             	4'b0000: result = A + B;           //add
-            	4'b0001: result = A + invB + 1'b1; //sub
+            	4'b0001: result = A - B; //sub
 							4'b0010: result = A << B;          //sl
 							4'b0011: result = A >> B;          //sr
 							4'b0100: result = A & B;           //and
