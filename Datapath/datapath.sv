@@ -27,8 +27,8 @@ module datapath
 	#(parameter n = 32, parameter r = 7)
 	(input clk, reset,                              //clock inputs
 	regDst, regWrite, branch, memWrite,             //Control Signals
-	memToReg, jump, aluSrc, branchMuxSelect,        //Control Signals
-	jalSelect, jalSelect2, jrSelect,								//Control Signals
+	memToReg, jump, jalSelect, jalSelect2,          //Control Signals
+	jrSelect,aluSrc, branchMuxSelect,               //Control Signals
 	input [3:0] aluControl,                         //Control signals
 	input [(n-1):0] instruction,                    //Instruction we gave
 	readData,                                       //Data read from registers
