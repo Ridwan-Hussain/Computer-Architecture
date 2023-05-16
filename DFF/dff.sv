@@ -33,20 +33,81 @@ module singledff(enable, reset, clk, D, Q);
 endmodule
 
 module dff 
-	// ---- PORT DEFINITIONS ---- //
+    #(parameter n = 32)(
+    //
+    // ---------------- PORT DEFINITIONS ----------------
+    //
+    input  logic clk, reset, enable,
+    input  logic [(n-1):0] D,
+    output logic [(n-1):0] Q
+);
+    //
+    // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
+    //
+    always @(posedge clk, posedge reset)
+    begin
+        if (reset)
+        begin
+            Q <= 0;
+        end
+        else
+        begin
+            Q <= D;
+        end
+    end	
+
+
+	/*// ---- PORT DEFINITIONS ---- //
 	#(parameter n = 32)
-	(input clk,
-	input [(n-1):0] enable, reset, D,
+	(input clk, reset,
+	input [(n-1):0] enable, D,
 	output [(n-1):0] Q,
 	output nclk, C);
 
 	// ---- MODULE DESIGN IMPLEMENTATION ---- //
+	    #(parameter n = 32)(
+    //
+    // ---------------- PORT DEFINITIONS ----------------
+    //
+    input  logic CLOCK, RESET,
+    input  logic [(n-1):0] D,
+    output logic [(n-1):0] Q
+);
+    //
+    // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
+    //
+    always @(posedge CLOCK, posedge RESET)
+    begin
+        if (RESET)
+        begin
+            Q <= 0;
+        end
+        else
+        begin
+            Q <= D;
+        end
+    end
+
+
 	genvar i;
 	generate
 		for (i = 0; i < n; i = i + 1'd1) begin
 			singledff sff0(.enable(enable[i]), .reset(reset[i]), .clk(clk), .D(D[i]), .Q(Q[i]));
 		end
 	endgenerate
+
+	always @(posedge clk, posedge reset)
+    begin
+        if (reset)
+        begin
+            Q <= 0;
+        end
+        else
+        begin
+            Q <= D;
+        end
+    end*/
+
 endmodule
 
 `endif //dff

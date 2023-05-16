@@ -25,7 +25,7 @@ module cpu
     	output logic memWrite,
     	output logic [31:0] aluOut, writeData,
     	input  logic [31:0] readData);
-    
+			
     	logic memToReg, aluSrc, regDst, regWrite, jump, branch, zero;
     	logic [3:0] aluControl;
     

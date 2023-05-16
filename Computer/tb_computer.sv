@@ -56,8 +56,9 @@ module tb_computer;
 
   // initialize test
   initial begin
-    #0 clk_enable <= 0; #50 reset <= 1; # 50; reset <= 0; #50 clk_enable <= 1;
-    #100 $finish;
+		#0 clk_enable <= 0; #50 reset <= 1; # 50; reset <= 0; #50 clk_enable <= 1;
+    #10 reset <= 1; #10 reset <= 0;
+		#100 $finish;
   end
 
   // monitor what happens at posedge of clock transition
@@ -76,6 +77,20 @@ module tb_computer;
       $display("\t+$a1 = 0x%4h",dut.mips.dp.regFile.registers[20]);
       $display("\t+$t0 = 0x%4h",dut.mips.dp.regFile.registers[29]);
       $display("\t+$t1 = 0x%4h",dut.mips.dp.regFile.registers[30]);
+      $display("\t+$t2 = 0x%4h",dut.mips.dp.regFile.registers[31]);
+      $display("\t+$t3 = 0x%4h",dut.mips.dp.regFile.registers[32]);
+      $display("\t+$t4 = 0x%4h",dut.mips.dp.regFile.registers[33]);
+      $display("\t+$t5 = 0x%4h",dut.mips.dp.regFile.registers[34]);
+      $display("\t+$t6 = 0x%4h",dut.mips.dp.regFile.registers[35]);
+      $display("\t+$t7 = 0x%4h",dut.mips.dp.regFile.registers[36]);
+      $display("\t+$t8 = 0x%4h",dut.mips.dp.regFile.registers[37]);
+      $display("\t+$t9 = 0x%4h",dut.mips.dp.regFile.registers[38]);
+      $display("\t+$t10 = 0x%4h",dut.mips.dp.regFile.registers[39]);
+      $display("\t+$t11 = 0x%4h",dut.mips.dp.regFile.registers[40]);
+      $display("\t+$t12 = 0x%4h",dut.mips.dp.regFile.registers[41]);
+      $display("\t+$t13 = 0x%4h",dut.mips.dp.regFile.registers[42]);
+      $display("\t+$t14 = 0x%4h",dut.mips.dp.regFile.registers[43]);
+      $display("\t+$t15 = 0x%4h",dut.mips.dp.regFile.registers[44]);
       $display("\t+regfile -- ra1 = %d",dut.mips.dp.regFile.readReg1);
       $display("\t+regfile -- ra2 = %d",dut.mips.dp.regFile.readReg2);
       $display("\t+regfile -- we3 = %d",dut.mips.dp.regFile.regWrite);
@@ -103,6 +118,20 @@ module tb_computer;
     $display("\t-$a1 = 0x%4h",dut.mips.dp.regFile.registers[20]);
     $display("\t-$t0 = 0x%4h",dut.mips.dp.regFile.registers[29]);
     $display("\t-$t1 = 0x%4h",dut.mips.dp.regFile.registers[30]);
+    $display("\t+$t2 = 0x%4h",dut.mips.dp.regFile.registers[31]);
+    $display("\t+$t3 = 0x%4h",dut.mips.dp.regFile.registers[32]);
+    $display("\t+$t4 = 0x%4h",dut.mips.dp.regFile.registers[33]);
+    $display("\t+$t5 = 0x%4h",dut.mips.dp.regFile.registers[34]);
+    $display("\t+$t6 = 0x%4h",dut.mips.dp.regFile.registers[35]);
+    $display("\t+$t7 = 0x%4h",dut.mips.dp.regFile.registers[36]);
+    $display("\t+$t8 = 0x%4h",dut.mips.dp.regFile.registers[37]);
+    $display("\t+$t9 = 0x%4h",dut.mips.dp.regFile.registers[38]);
+    $display("\t+$t10 = 0x%4h",dut.mips.dp.regFile.registers[39]);
+    $display("\t+$t11 = 0x%4h",dut.mips.dp.regFile.registers[40]);
+    $display("\t+$t12 = 0x%4h",dut.mips.dp.regFile.registers[41]);
+    $display("\t+$t13 = 0x%4h",dut.mips.dp.regFile.registers[42]);
+    $display("\t+$t14 = 0x%4h",dut.mips.dp.regFile.registers[43]);
+    $display("\t+$t15 = 0x%4h",dut.mips.dp.regFile.registers[44]);
     $display("\t-regfile -- ra1 = %d",dut.mips.dp.regFile.readReg1);
     $display("\t-regfile -- ra2 = %d",dut.mips.dp.regFile.readReg2);
     $display("\t-regfile -- we3 = %d",dut.mips.dp.regFile.regWrite);

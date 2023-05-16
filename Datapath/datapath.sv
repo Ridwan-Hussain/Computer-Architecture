@@ -57,7 +57,7 @@ module datapath
 		result;
 	
 	//Determines what the next PC logic is
-	dff #(n) PC(.clk(clk), .reset({32{reset}}), .enable(1), .D(pcNext), .Q(pc));
+	dff #(n) PC(.clk(clk), .reset(reset), .enable(1), .D(pcNext), .Q(pc));
 	  //DFF that stores all of the instructions that will be used for PC
 	adder Add4(.A(pc), .B(4), .Cin(1'b0), .Cout(Cout1), .Sum(pc4));
 	  //Adds 32 to the PC, since memory is word addressable for us, for Register instruction type

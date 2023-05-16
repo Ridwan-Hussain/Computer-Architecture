@@ -26,7 +26,7 @@ module imem
 	reg [(n-1):0] RAM[0:(2**r-1)];
 
 	initial begin
-		$readmemh("program_exe", RAM);
+		$readmemb("program_exe", RAM);
 		//We're calling our output file program_exe instead of program.exe because
 		//out .gitignore file.
 	end

@@ -26,7 +26,7 @@ module computer(clk, reset, writeData, dataAddr, memWrite);
 	output logic memWrite;
 
 	logic [31:0] pc, instr, readData;
-
+	
   // computer internal components
   // the RISC CPU
   cpu mips(clk, reset, pc, instr, memWrite, dataAddr, writeData, readData);
